@@ -1,19 +1,22 @@
 import axios from 'axios';
 
 export const registerUser = async (user) => {
+  console.log('user', user)
   const options = {
     method: 'POST',
-    url: '/api/register',
+    url: 'https://pixelprojectapp.herokuapp.com/authentication/register/',
     data: user,
   };
-  const { data } = await axios.request(options);
+  console.log('options',options)
+  const { data }  = await axios.request(options);
+  console.log( data )
   return data;
 };
 
 export const getUser = async (userId) => {
   const options = {
     method: 'GET',
-    url: `/api/user/${userId}`,
+    url: `https://pixelprojectapp.herokuapp.com/owners/${userId}`,
     headers: {
       authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
     },
@@ -26,11 +29,12 @@ export const getUser = async (userId) => {
 export const loginUser = async (credentials) => {
   const options = {
     method: 'POST',
-    url: '/api/login',
+    url: 'https://pixelprojectapp.herokuapp.com/authentication/login/',
     data: credentials,
   };
-
+  console.log('options', options);
   const { data } = await axios.request(options);
+  console.log('login data', data)
   if (data.token) {
     window.sessionStorage.setItem('token', data.token);
   } else {

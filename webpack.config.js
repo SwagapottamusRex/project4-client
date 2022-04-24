@@ -49,6 +49,7 @@ module.exports = (webpackEnv) => {
           secure: false
         }
       }
+
     },
     plugins: [
       new Dotenv(),

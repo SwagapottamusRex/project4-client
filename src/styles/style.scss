@@ -1,1 +1,12 @@
 @import '~bulma/bulma.sass';
+@import 'bulma/css/bulma.css';
+
+#home-background {
+  background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  // opacity: 0.79;
+}
