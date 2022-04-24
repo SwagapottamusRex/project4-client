@@ -11,6 +11,7 @@ import CommunityNew from './CreateCommunity';
 import CommunityEdit from './EditCommunity';
 import CommunityCard from './CommunityPage';
 import Thread from './ThreadCard';
+import ThreadNew from './CreateThread';
 
 const App = () => (
   <BrowserRouter>
@@ -26,6 +27,7 @@ const App = () => (
       <Route path='editcommunity' element={<CommunityEdit />} />
       <Route path='community/:id' element={<CommunityCard />} />
       <Route path='thread/:id' element={<Thread />} />
+      <Route path='createthread' element={<ThreadNew />} />
     </Routes>
   </BrowserRouter>
 );

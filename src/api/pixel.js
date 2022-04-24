@@ -58,3 +58,29 @@ export const getThreadById = async (threadId) => {
   const { data } = await axios.request(options);
   return data;
 };
+
+export const getAllThreads = async () => {
+  const options = {
+    method: 'GET',
+    url: `https://pixelprojectapp.herokuapp.com/threads/`,
+  };
+
+  const { data } = await axios.request(options);
+  return data;
+};
+
+
+export const createThread = async (credentials) => {
+  const options = {
+    method: 'POST',
+    url: 'https://pixelprojectapp.herokuapp.com/thread/create',
+    data: credentials,
+    headers: {
+      authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
+    },
+  };
+
+  const { data } = await axios.request(options);
+
+  return data.message;
+};

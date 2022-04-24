@@ -2,16 +2,17 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { getLoggedInUserId } from '../lib/auth';
-
+import { Link } from 'react-router-dom';
 
 import { updateUser, getUser } from '../api/auth';
-import { deleteCommunity, getCommunityById } from '../api/pixel';
+import { deleteCommunity, getCommunityById, getAllThreads } from '../api/pixel';
 
 const CommunityCard = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [community, setCommunity] = React.useState(null);
   const [userObject, setUserObject] = React.useState('');
+  const [threads, setThreads] = React.useState('')
 
   const userId = getLoggedInUserId();
 
@@ -20,10 +21,13 @@ const CommunityCard = () => {
       try {
         const community = await getCommunityById(id);
         setCommunity(community);
-
+        console.log(community)
         const user = await getUser(userId);
-        
+        console.log('USER', user)
         setUserObject(user);
+        const threads = await getAllThreads()
+        console.log('threads', threads)
+        setThreads(threads)
       } catch (error) {
         console.error(error);
       }
@@ -50,11 +54,11 @@ const CommunityCard = () => {
   if (!community) {
     return <p>loading...</p>;
   }
-  if (!userObject) {
-    return <p>loading...</p>;
-  }
-  console.log('username community creator', community.creator.username);
-  console.log('userobject', userObject.username);
+  // if (!threads) {
+  //   return <p>loading...</p>;
+  // }
+
+
   return (
     <div className='container mt-6'>
       <div className='columns'>
@@ -91,10 +95,34 @@ const CommunityCard = () => {
           <div className='card'>
             <h2 className='title'>{community.name}</h2>
             <hr></hr>
+            {!threads.length ? (
+              <p id='noresults'>No Results</p>
+            ) : (
+              threads.map((threadItem) => {
+                if (threadItem.community === community.id) {
+                  return (
+                    <>
+                      <h3 key={threadItem.id}></h3>
+                      <div>
+                        <p>Thread Title: {threadItem.title}</p>
+                      </div>
+                    </>
+                  );
+                }
+              })
+            )}
           </div>
-
-          <div></div>
         </div>
+        {getLoggedInUserId() && (
+          <Link to='/createthread'>
+            <div>
+              <p className='fontstyling'>Create New Thread</p>
+              <span className='icon'>
+                <i class='fas fa-plus-square'></i>
+              </span>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );
