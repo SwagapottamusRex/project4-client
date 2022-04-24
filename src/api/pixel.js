@@ -84,3 +84,45 @@ export const createThread = async (credentials) => {
 
   return data.message;
 };
+
+export const getAllComments = async () => {
+  const options = {
+    method: 'GET',
+    url: `https://pixelprojectapp.herokuapp.com/comments/`,
+  };
+
+  const { data } = await axios.request(options);
+  return data;
+};
+
+export const createComment = async (credentials) => {
+  const options = {
+    method: 'POST',
+    url: 'https://pixelprojectapp.herokuapp.com/comment/create',
+    data: credentials,
+    headers: {
+      authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
+    },
+  };
+
+  const { data } = await axios.request(options);
+
+  return data.message;
+};
+
+
+export const updateCommunity = async (credentials, communityId) => {
+  const options = {
+    method: 'PUT',
+    url: `https://pixelprojectapp.herokuapp.com/communities/update/${communityId}`,
+    data: credentials,
+    headers: {
+      authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
+    },
+  };
+  console.log('options', options)
+
+  const { data } = await axios.request(options);
+
+  return data.message;
+};

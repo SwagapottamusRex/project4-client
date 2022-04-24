@@ -24,7 +24,7 @@ const App = () => (
       <Route path='login' element={<Login />} />
       <Route path='myprofile/' element={<MyProfile />} />
       <Route path='createcommunity' element={<CommunityNew />} />
-      <Route path='editcommunity' element={<CommunityEdit />} />
+      <Route path='community/:id/edit' element={<CommunityEdit />} />
       <Route path='community/:id' element={<CommunityCard />} />
       <Route path='thread/:id' element={<Thread />} />
       <Route path='createthread' element={<ThreadNew />} />

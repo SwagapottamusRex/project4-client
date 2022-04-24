@@ -22,26 +22,34 @@ const CommunityIndex = () => {
         <h1 className='title'></h1>
         {community ? (
           <div className='container is-dark'>
-            <div className='columns is-multiline' id='podcast-inner'>
-              {community.map((communityitem) => (
+            <div className='columns is-multiline' id='community-inner'>
+              {community.map((communityItem) => (
                 <div
-                  key={communityitem.id}
+                  key={communityItem.id}
                   className='column card  is-one-half'
-                  id='podcast-card'
+                  id='community-card'
                 >
-                  <Link to={`/community/${communityitem.id}`}>
+                  <Link to={`/community/${communityItem.id}`}>
                     <p>
-                      <b>Community Name:</b> {communityitem.name}
+                      <b>Community Name:</b> {communityItem.name}
                     </p>
                     <hr></hr>
                     <p>
                       <b>Community Image:</b>
-                      <img src={communityitem.image}></img>
+                      <img src={communityItem.image}></img>
                     </p>
-                    <p>
-                      Created By: {communityitem.creator.username}
-                    </p>
+                    <p>Created By: {communityItem.creator.username}</p>
                   </Link>
+                  {getLoggedInUserId() === communityItem.id && (
+                    <Link to={`/community/${communityItem.id}/edit`}>
+                      <div>
+                        <p className='fontstyling'>Edit Community</p>
+                        <span className='icon'>
+                          <i class='fas fa-plus-square'></i>
+                        </span>
+                      </div>
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>

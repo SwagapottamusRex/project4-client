@@ -1,15 +1,12 @@
 import axios from 'axios';
 
 export const registerUser = async (user) => {
-  console.log('user', user)
   const options = {
     method: 'POST',
     url: 'https://pixelprojectapp.herokuapp.com/authentication/register/',
     data: user,
   };
-  console.log('options',options)
   const { data }  = await axios.request(options);
-  console.log( data )
   return data;
 };
 
@@ -32,9 +29,7 @@ export const loginUser = async (credentials) => {
     url: 'https://pixelprojectapp.herokuapp.com/authentication/login/',
     data: credentials,
   };
-  console.log('options', options);
   const { data } = await axios.request(options);
-  console.log('login data', data)
   if (data.token) {
     window.sessionStorage.setItem('token', data.token);
   } else {

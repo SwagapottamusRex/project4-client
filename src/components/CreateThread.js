@@ -12,12 +12,12 @@ function ThreadNew() {
     community: '',
   });
   const [communities, setCommunities] = React.useState('')
+  const [displayChoice, setDisplayChoice] =React.useState('')
 
   React.useEffect(() => {
     const getData = async () => {
       const communitiesList = await getAllCommunities();
       setCommunities(communitiesList);
-      console.log(communitiesList)
 
     };
     getData();
@@ -32,6 +32,7 @@ function ThreadNew() {
     const getData = async () => {
       try {
         await createThread(thread);
+        // ! 
         navigate('/community');
       } catch (err) {
         console.log(err);
@@ -40,7 +41,7 @@ function ThreadNew() {
     getData();
   }
   function handleSelect(event) {
-    console.log(event.target.id)
+    setDisplayChoice(event.target.innerText)
     setThread({
       ...thread,
       community: event.target.id,
@@ -73,7 +74,7 @@ function ThreadNew() {
               <div className='control'>
                 <input
                   className='input'
-                  placeholder='Community Name'
+                  placeholder='Thread Name'
                   name='title'
                   onChange={handleChange}
                   value={thread.title}
@@ -94,8 +95,15 @@ function ThreadNew() {
                     <span className='icon is-small'>
                       <i className='fas fa-angle-down' aria-hidden='true'></i>
                     </span>
+                    {!displayChoice ? (
+                      <p id='noresults'>Make a Selection</p>
+                    ) : (
+                        <p>{displayChoice}</p>
+                      )
+                    }
                   </div>
                 </div>
+
                 <div className='dropdown-menu' id='dropdown-menu3' role='menu'>
                   <div
                     className='dropdown-content'
@@ -106,12 +114,12 @@ function ThreadNew() {
                     {!communities.length ? (
                       <p id='noresults'>No Results</p>
                     ) : (
-                    communities.map((communitiesItem) => (
-                      <a className='dropdown-item' id={communitiesItem.id}>
-                        {communitiesItem.name}
-                        {communitiesItem.id}
-                      </a>
-                    )))}
+                      communities.map((communitiesItem) => (
+                        <a className='dropdown-item' id={communitiesItem.id}>
+                          {communitiesItem.name}
+                        </a>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>

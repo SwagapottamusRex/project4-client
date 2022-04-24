@@ -21,13 +21,10 @@ const CommunityCard = () => {
       try {
         const community = await getCommunityById(id);
         setCommunity(community);
-        console.log(community)
-        const user = await getUser(userId);
-        console.log('USER', user)
-        setUserObject(user);
         const threads = await getAllThreads()
-        console.log('threads', threads)
         setThreads(threads)
+        const user = await getUser(userId);
+        setUserObject(user);
       } catch (error) {
         console.error(error);
       }
@@ -55,7 +52,7 @@ const CommunityCard = () => {
     return <p>loading...</p>;
   }
   // if (!threads) {
-  //   return <p>loading...</p>;
+  //   return <p>loading threads...</p>;
   // }
 
 
@@ -95,17 +92,19 @@ const CommunityCard = () => {
           <div className='card'>
             <h2 className='title'>{community.name}</h2>
             <hr></hr>
-            {!threads.length ? (
+            {!threads ? (
               <p id='noresults'>No Results</p>
             ) : (
               threads.map((threadItem) => {
                 if (threadItem.community === community.id) {
                   return (
                     <>
+                    <Link to={`/thread/${threadItem.id}` }>
                       <h3 key={threadItem.id}></h3>
                       <div>
                         <p>Thread Title: {threadItem.title}</p>
                       </div>
+                    </Link>
                     </>
                   );
                 }

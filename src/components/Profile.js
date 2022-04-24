@@ -9,9 +9,7 @@ const MyProfile = () => {
   React.useEffect(() => {
     const getData = async () => {
       const userId = getLoggedInUserId();
-      console.log('userId',userId)
       const userObject = await getUser(userId);
-      console.log(userObject)
       setUserObject(userObject);
     };
     getData();
@@ -33,6 +31,7 @@ const MyProfile = () => {
             <ul>
               <li><img src={userObject.image}></img>Image: {userObject.image}</li>
               <li>Email:{userObject.email}</li>
+              <li>Username:{userObject.username}</li>
               <li>Date Joined:{userObject.date_joined}</li>
             </ul>
           

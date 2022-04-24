@@ -7,6 +7,7 @@ const Register = () => {
   const [emailValue, setEmailValue] = React.useState("");
   const [passwordValue, setPasswordValue] = React.useState("");
   const [confirmPasswordValue, setConfirmPasswordValue] = React.useState("");
+  const [imageValue, setImageValue] = React.useState("");
   const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
@@ -22,10 +23,12 @@ const Register = () => {
   const handleConfirmPasswordChange = (e) => {
     setConfirmPasswordValue(e.target.value);
   };
+  const handleImageChange = (e) => {
+    setImageValue(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('all the states', usernameValue, emailValue, passwordValue, confirmPasswordValue)
     const getData = async () => {
       try {
         await registerUser({
@@ -33,6 +36,7 @@ const Register = () => {
           email: emailValue,
           password: passwordValue,
           password_confirmation: confirmPasswordValue,
+          image: imageValue
         });
         navigate('/login');
       } catch (err) {
@@ -125,6 +129,27 @@ const Register = () => {
                 />
                 <span class='icon is-small is-left'>
                   <i class='fas fa-lock'></i>
+                </span>
+                <span class='icon is-small is-right'>
+                  <i class='fas fa-check'></i>
+                </span>
+              </p>
+            </div>
+            <div className='field'>
+              <label htmlFor='image' className='label'>
+                Image
+              </label>
+              <p class='control has-icons-left has-icons-right'>
+                <input
+                  class='input'
+                  type='text'
+                  placeholder='Insert Image Link'
+                  value={imageValue}
+                  onChange={handleImageChange}
+                  id='image'
+                />
+                <span class='icon is-small is-left'>
+                  <i class='fas fa-image'></i>
                 </span>
                 <span class='icon is-small is-right'>
                   <i class='fas fa-check'></i>
