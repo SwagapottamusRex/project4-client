@@ -38,16 +38,3 @@ export const loginUser = async (credentials) => {
   return data.message;
 };
 
-export const updateUser = async (userId, likedPodcasts) => {
-  const options = {
-    method: 'PUT',
-    url: `/api/user/${userId}`,
-    data: { likedPodcasts },
-    headers: {
-      authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
-    },
-  };
-  const data = await axios.request(options);
-
-  return data;
-};

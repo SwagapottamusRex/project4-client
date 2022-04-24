@@ -126,3 +126,39 @@ export const updateCommunity = async (credentials, communityId) => {
 
   return data.message;
 };
+
+export const getAllPixels = async () => {
+  const options = {
+    method: 'GET',
+    url: `https://pixelprojectapp.herokuapp.com/pixels`,
+  };
+
+  const { data } = await axios.request(options);
+  return data;
+};
+
+export const getAllColors = async () => {
+  const options = {
+    method: 'GET',
+    url: `https://pixelprojectapp.herokuapp.com/colors`,
+  };
+
+  const { data } = await axios.request(options);
+  return data;
+};
+
+
+export const createPixel = async (credentials) => {
+  const options = {
+    method: 'POST',
+    url: 'https://pixelprojectapp.herokuapp.com/pixel/create',
+    data: credentials,
+    headers: {
+      authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
+    },
+  };
+
+  const { data } = await axios.request(options);
+
+  return data.message;
+};

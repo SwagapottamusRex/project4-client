@@ -10,3 +10,100 @@
   background-size: cover;
   // opacity: 0.79;
 }
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(60, auto);
+  background-color: #2196F3;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+  width: 5px;
+  cursor: pointer;
+  
+}
+.wraparound{
+  display: flex;
+  justify-content: center;
+}
+
+.highlighted{
+  border: 1px solid red;
+}
+.highlightedColor{
+  border: 3px solid red;
+}
+
+.pallet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colorList{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.black{
+  background-color: black;
+  color:white;
+    padding: 10px;
+    cursor: pointer;
+  
+}
+
+.red{
+  background-color: red;
+    padding: 10px;
+    cursor: pointer;
+}
+.orange{
+  background-color: orange;
+    padding: 10px;
+    cursor: pointer;
+}
+.yellow{
+  background-color: yellow;
+    padding: 10px;
+    cursor: pointer;
+}
+.green{
+  background-color: green;
+  color:white;
+    padding: 10px;
+    cursor: pointer;
+}
+.blue{
+  background-color: blue;
+  color:white;
+    padding: 10px;
+    cursor: pointer;
+}
+.purple{
+  background-color: purple;
+  color:white;
+    padding: 10px;
+    cursor: pointer;
+}
+.brown{
+  background-size: 50px 50px;
+  height: 50px;
+  background-color: brown;
+  color:white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.white {
+  border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+}

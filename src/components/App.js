@@ -12,6 +12,7 @@ import CommunityEdit from './EditCommunity';
 import CommunityCard from './CommunityPage';
 import Thread from './ThreadCard';
 import ThreadNew from './CreateThread';
+import PixelPlace from './Pixel';
 
 const App = () => (
   <BrowserRouter>
@@ -28,6 +29,7 @@ const App = () => (
       <Route path='community/:id' element={<CommunityCard />} />
       <Route path='thread/:id' element={<Thread />} />
       <Route path='createthread' element={<ThreadNew />} />
+      <Route path='pixel' element={<PixelPlace />} />
     </Routes>
   </BrowserRouter>
 );
