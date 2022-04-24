@@ -31,7 +31,7 @@ const MyProfile = () => {
           <h2>Welcome: {userObject.username}!</h2>
           <div>
             <ul>
-              <li>Image: {userObject.image}</li>
+              <li><img src={userObject.image}></img>Image: {userObject.image}</li>
               <li>Email:{userObject.email}</li>
               <li>Date Joined:{userObject.date_joined}</li>
             </ul>
