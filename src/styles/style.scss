@@ -103,7 +103,19 @@
 }
 
 .white {
-  border: 1px solid black;
     padding: 10px;
     cursor: pointer;
+}
+
+// .subButton{
+//   width: 100px;
+//   justify-content: center;
+// }
+
+.placePix{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
 }

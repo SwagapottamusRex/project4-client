@@ -21,7 +21,6 @@ function CommunityEdit() {
   }, []);
 
   function handleChange(event) {
-    console.log('target name',event.target.name)
     setCommunity({
       ...community,
       [event.target.name]: event.target.value,
@@ -33,8 +32,6 @@ function CommunityEdit() {
 
     const getData = async () => {
       try {
-        console.log('community',community)
-        console.log('id',id)
         delete community.creator
         await updateCommunity(community, id);
         navigate(`/community/${id}`);

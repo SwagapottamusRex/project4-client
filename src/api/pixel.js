@@ -120,7 +120,6 @@ export const updateCommunity = async (credentials, communityId) => {
       authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
     },
   };
-  console.log('options', options)
 
   const { data } = await axios.request(options);
 
@@ -151,7 +150,7 @@ export const getAllColors = async () => {
 export const createPixel = async (credentials) => {
   const options = {
     method: 'POST',
-    url: 'https://pixelprojectapp.herokuapp.com/pixel/create',
+    url: 'https://pixelprojectapp.herokuapp.com/pixel/create/',
     data: credentials,
     headers: {
       authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
@@ -160,5 +159,5 @@ export const createPixel = async (credentials) => {
 
   const { data } = await axios.request(options);
 
-  return data.message;
+  return data;
 };
