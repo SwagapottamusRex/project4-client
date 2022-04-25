@@ -16,7 +16,7 @@ const Navbar = () => {
     <>
       <nav className='navbar-wrapper'>
         <div className='navbar-brand'>
-          <Link to='/home' className='navbar-item'>
+          <Link to='/' className='navbar-item'>
             <p className='fontstyling'>Home</p>
             <span className='icon'>
               <i className='fas fa-home'></i>
@@ -62,7 +62,7 @@ const Navbar = () => {
             )}
             {getLoggedInUserId() && (
               <Link
-                to='/home'
+                to='/'
                 className='navbar-item'
                 id='logout'
                 onClick={logout}

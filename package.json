@@ -33,6 +33,7 @@
     "axios": "^0.26.1",
     "bulma": "^0.9.3",
     "font-awesome": "^4.7.0",
+    "netlify-cli": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2"
