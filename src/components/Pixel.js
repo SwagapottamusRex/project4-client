@@ -105,7 +105,7 @@ function PixelPlace() {
             <li onClick={handleColorClick} class='black'>
               Black
             </li>
-            <li onClick={handleColorClick} class='white makeBackgroundWhite'>
+            <li onClick={handleColorClick} class='white' id='makeBackgroundWhite'>
               White
             </li>
             <li onClick={handleColorClick} class='red'>
