@@ -1,5 +1,6 @@
 import React from 'react'
 import { getAllCommunities } from '../api/pixel'
+import { getUser } from '../api/auth'
 import { getLoggedInUserId } from '../lib/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -7,55 +8,63 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const CommunityIndex = () => {
   const [community, setCommunity] = React.useState(null)
+  const [user, setUser] = React.useState(null)
   React.useEffect(() => {
     const getData = async () => {
       const communityData = await getAllCommunities();
       setCommunity(communityData);
+      const userInfo = await getUser(getLoggedInUserId())
+      setUser(userInfo);
     };
     getData();
   }, []);
-
-
+  
   return (
     <>
-      <section className='hero is-fullheight-with-navbar' id='index-container'>
+      <section
+        className='hero is-fullheight-with-navbar setCreateBackgroundThread'
+        id='index-container'
+      >
         <h1 className='title'></h1>
         {community ? (
-          <div className='container is-dark'>
+          <div className='container is-dark centerCommunities'>
             <div className='columns is-multiline' id='community-inner'>
               {community.map((communityItem) => (
                 <div
                   key={communityItem.id}
-                  className='column card  is-one-half'
+                  className='column card  is-one-half centerCommunitiesContent'
                   id='community-card'
                 >
-                  <Link to={`/community/${communityItem.id}`}>
-                    <p>
+                  <Link to={`/community/${communityItem.id}`} className='adjustImageCommunity'>
+                    <p className='nameCommunityPage'>
                       <b>Community Name:</b> {communityItem.name}
                     </p>
-                    <hr></hr>
+                    
                     <p>
-                      <b>Community Image:</b>
-                      <img src={communityItem.image}></img>
+                      <img src={communityItem.image} className='ajustImageCommunity'></img>
                     </p>
                     <p>Created By: {communityItem.creator.username}</p>
                   </Link>
-                  {getLoggedInUserId() === communityItem.id && (
-                    <Link to={`/community/${communityItem.id}/edit`}>
-                      <div>
-                        <p className='fontstyling'>Edit Community</p>
-                        <span className='icon'>
-                          <i class='fas fa-plus-square'></i>
-                        </span>
-                      </div>
-                    </Link>
+                  {!user ? (
+                    <p></p>
+                  ) : (
+                    user.username === communityItem.creator.username && (
+                      <Link to={`/community/${communityItem.id}/edit`}>
+                        <div className='alignEditCommunity'>
+                          <p className='fontstyling'>Edit Community</p>
+                          <span className='icon'>
+                            <i class='fas fa-plus-square'></i>
+                          </span>
+                        </div>
+                      </Link>
+                    )
                   )}
                 </div>
               ))}
             </div>
             {getLoggedInUserId() && (
               <Link to='/createcommunity'>
-                <div>
+                <div className='createNewCommunity'>
                   <p className='fontstyling'>Create New Community</p>
                   <span className='icon'>
                     <i class='fas fa-plus-square'></i>

@@ -62,7 +62,7 @@ function ThreadNew() {
     }
 
   return (
-    <section className='mt-2'>
+    <section className='mt-2 setCreateBackgroundThread'>
       <div className='container'>
         <div className='columns'>
           <form

@@ -57,71 +57,66 @@ const CommunityCard = () => {
 
 
   return (
-    <div className='container mt-6'>
-      <div className='columns'>
-        <div className='column is-half'>
-          <figure className='image'>
-            <img src={community.image} alt={community.name} />
-          </figure>
-          {userObject.username === community.creator.username && (
-            <button
-              type='button'
-              className='button is-danger mt-4'
-              onClick={() => handleCommunityDelete(community.id)}
-            >
-              <p>Delete Community</p>
-              <span className='icon'>
-                <i className='icon fas fa-ban'></i>
-              </span>
-            </button>
-          )}
-          {/* {getLoggedInUserId() === community.creator.id && (
-            <button
-              type='button'
-              className='button is-warning m-4'
-              // onClick={() => navigate(`/community/${community._id}/edit`)}
-            >
-              <p>Update Community</p>
-              <span className='icon'>
-                <i className='icon fas fa-info-circle'></i>
-              </span>
-            </button>
-          )} */}
-        </div>
-        <div className='column is-half'>
-          <div className='card'>
-            <h2 className='title'>{community.name}</h2>
-            <hr></hr>
-            {!threads ? (
-              <p id='noresults'>No Results</p>
-            ) : (
-              threads.map((threadItem) => {
-                if (threadItem.community === community.id) {
-                  return (
-                    <>
-                    <Link to={`/thread/${threadItem.id}` }>
-                      <h3 key={threadItem.id}></h3>
-                      <div>
-                        <p>Thread Title: {threadItem.title}</p>
-                      </div>
-                    </Link>
-                    </>
-                  );
-                }
-              })
+    <div className='communityBackground'>
+      <div className='container mt-6'>
+        <div className='columns'>
+          <div className='column is-half useThisOne'>
+            <figure className='image'>
+              <img
+                src={community.image}
+                alt={community.name}
+                className='communityImage'
+              />
+            </figure>
+            {userObject.username === community.creator.username && (
+              <button
+                type='button'
+                className='button is-danger mt-4'
+                onClick={() => handleCommunityDelete(community.id)}
+              >
+                <p>Delete Community</p>
+                <span className='icon'>
+                  <i className='icon fas fa-ban'></i>
+                </span>
+              </button>
             )}
           </div>
-        </div>
-        {getLoggedInUserId() && (
-          <Link to='/createthread'>
-            <div>
-              <p className='fontstyling'>Create New Thread</p>
-              <span className='icon'>
-                <i class='fas fa-plus-square'></i>
-              </span>
+          <div className='column is-half'>
+            <div className='card targetCommunityTitle'>
+              <h2 className='title '>{community.name}</h2>
+              <hr></hr>
+              Threads:
+              {!threads ? (
+                <p id='noresults'>Getting threads...</p>
+              ) : (
+                threads.map((threadItem) => {
+                  if (threadItem.community === community.id) {
+                    return (
+                      <>
+                        <Link to={`/thread/${threadItem.id}`}>
+                          <h3 key={threadItem.id}></h3>
+                          <div>
+                            <p>Thread: {threadItem.title}</p>
+                          </div>
+                        </Link>
+                      </>
+                    );
+                  }
+                })
+              )}
             </div>
-          </Link>
-        )}
+          {getLoggedInUserId() && (
+            <Link to='/createthread'>
+              <div className='createNewThread'>
+                <p className='fontstyling'>Create New Thread</p>
+                <span className='icon'>
+                  <i class='fas fa-plus-square'></i>
+                </span>
+              </div>
+            </Link>
+          )}
+          </div>
+        </div>
       </div>
     </div>
   );

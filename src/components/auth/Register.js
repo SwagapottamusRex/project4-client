@@ -47,7 +47,10 @@ const Register = () => {
   };
 
   return (
-    <div className='hero is-fullheight-with-navbar' id='register-background'>
+    <div
+      className='hero is-fullheight-with-navbar makeBackgroundLogin'
+      id='register-background'
+    >
       <body className='register-container'>
         <div>
           <form className='box' onSubmit={handleSubmit}>

@@ -45,11 +45,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 30px;
 }
 .colorList{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .black{
@@ -107,10 +108,10 @@
     cursor: pointer;
 }
 
-// .subButton{
-//   width: 100px;
-//   justify-content: center;
-// }
+.subButton{
+  padding: 20px;
+  margin: 10px;
+}
 
 .placePix{
   display: flex;
@@ -118,4 +119,185 @@
     justify-content: center;
     align-items: center;
   
+  
+}
+
+.shapeImage{
+  width: 100px;
+  border-radius: 50%;
+}
+.threadContents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+      height: 100vh;
+}
+
+.allComents{
+  display: flex;
+  flex-direction: column;
+}
+
+.indiComment{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  margin: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 500px;
+}
+.imageAndName{
+  display: flex;
+  flex-direction: column;
+}
+
+.profileHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+}
+
+.profileInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border: 2px solid blue;
+  padding: 30px;
+}
+
+.profileDetails{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.myProfileText{
+  font-size: 35px;
+}
+.wrapText{
+  padding: 10px
+}
+
+.communityBackground{
+  height: 100vh;
+  background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+  }
+
+  .communityImage{
+    border-radius: 50%;
+  }
+
+  .targetCommunityTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: beige;
+  }
+
+  .useThisOne{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .createNewThread{
+    display: flex;
+    flex-direction: row;
+  }
+
+.setCreateBackgroundThread{
+  background-repeat: repeat;
+  background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+}
+
+.centerCommunities{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.createNewCommunity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 15px;
+  margin-bottom: 200px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.centerCommunitiesContent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.adjustImageCommunity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.alignEditCommunity{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-direction: row;
+
+}
+.ajustImageCommunity{
+  border-radius: 100%;
+  max-width: 300px;
+}
+
+.nameCommunityPage{
+  padding-bottom: 30px;
+}
+
+.pixelBackground{
+
+  background-repeat: repeat;
+  background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+}
+
+.makeBackgroundLogin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: repeat;
+  background-image: url('https://www.publicdomainpictures.net/pictures/300000/velka/pixelated-background-1554863525mz3.jpg');
+}
+
+.makeBackgroundWhite{
+  background-color: white;
+}
+
+.navbar-wrapper{
+  padding: 10px;
+  background-color: gray
+}
+
+.navbar-brand{
+  color: white;
 }

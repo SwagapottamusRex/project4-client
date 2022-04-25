@@ -23,7 +23,7 @@ const Login = () => {
           username: usernameValue,
           password: passwordValue,
         });
-        navigate('/home');
+        navigate('/myprofile');
       } catch (err) {
         console.log('Error', err);
       }
@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   return (
-    <div className='hero is-fullheight-with-navbar' id='login-background'>
+    <div className='hero is-fullheight-with-navbar makeBackgroundLogin' id='login-background'>
       <body className='login-container'>
         <div>
           <form className='box' onSubmit={handleSubmit}>

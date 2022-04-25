@@ -18,7 +18,6 @@ const App = () => (
   <BrowserRouter>
     <Navbar />
     <Routes>
-      <Route path='/' element={<h1>Hello world</h1>} />
       <Route path='/home' element={<Home />} />
       <Route path='register' element={<Register />} />
       <Route path='community' element={<CommunityIndex />} />

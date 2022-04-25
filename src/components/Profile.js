@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import { getUser } from "../api/auth";
 import { getLoggedInUserId }  from "../lib/auth"
 
@@ -23,21 +22,20 @@ const MyProfile = () => {
 
   return (
     <>
-      <h1>My Profile</h1>
-      <div>
-        <div>
-          <h2>Welcome: {userObject.username}!</h2>
-          <div>
-            <ul>
-              <li><img src={userObject.image}></img>Image: {userObject.image}</li>
-              <li>Email:{userObject.email}</li>
-              <li>Username:{userObject.username}</li>
-              <li>Date Joined:{userObject.date_joined}</li>
-            </ul>
-          
-          </div>
-        </div>
+    <div className='profileHeader'>
+      <h1 className='myProfileText'><b>My Profile</b></h1>
+      <div className='profileInfo'>
+        <h2>Welcome: {userObject.username}!</h2>
+          <ul className='profileDetails'>
+            <li>
+              <img src={userObject.image} className='shapeImage'></img>
+            </li>
+            <li>Email: {userObject.email}</li>
+            <li>Username: {userObject.username}</li>
+            <li>Date Joined: {userObject.date_joined}</li>
+          </ul>
       </div>
+    </div>
     </>
   );
 
