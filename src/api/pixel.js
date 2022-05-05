@@ -166,13 +166,12 @@ export const createPixel = async (credentials) => {
 export const updatePixel = async (credentials, pixelId) => {
   const options = {
     method: 'PUT',
-    url: `https://pixelprojectapp.herokuapp.com/pixel/${pixelId}/detail/`,
+    url: `https://pixelprojectapp.herokuapp.com/pixel/${pixelId}/`,
     data: credentials,
     headers: {
       authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
     },
   };
-  console.log(options)
   const { data } = await axios.request(options);
 
   return data;

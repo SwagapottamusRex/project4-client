@@ -13,17 +13,30 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(60, auto);
+  grid-template-columns: repeat(200, auto);
   background-color: #2196F3;
   padding: 10px;
   align-items: center;
   justify-content: center;
 }
 
+.testGrid {
+  display: grid;
+  grid-template-columns: repeat(200, 1fr);
+  grid-template-rows: repeat(200, 1fr);
+  width: 50vw;
+  height: 50vh;
+  outline: 2px solid black;
+}
+
+.testCell {
+  outline: 2px solid black;
+}
+
 .grid-item {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 10px;
+  padding: 7px;
   text-align: center;
   width: 5px;
   cursor: pointer;

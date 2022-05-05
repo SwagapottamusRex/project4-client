@@ -36,6 +36,7 @@
     "netlify-cli": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-easy-panzoom": "^0.4.4",
     "react-router-dom": "^6.2.2"
   }
 }
