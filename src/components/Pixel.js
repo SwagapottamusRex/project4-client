@@ -5,6 +5,7 @@ import { createPixel, getAllColors, getAllPixels, updatePixel } from '../api/pix
 import {getLoggedInUserId} from '../lib/auth'
 import { PanZoom } from 'react-easy-panzoom';
 
+
 function PixelPlace() {
   const [cells]= React.useState(Array.from({ length: 200 }, (_, y) => Array.from({ length: 200 }, (_, x) => x)))
   
@@ -29,15 +30,19 @@ function PixelPlace() {
       const allThePixels = document.getElementById('allThePixels')
       const allTheChildren = allThePixels.children;
       const arr = [].slice.call(allTheChildren);
-      arr.map((pixelItem)=>{
-        allPixels.map((alreadyCreatedPixelsItem) => {
-          
-          if (parseInt(pixelItem.attributes.x.value) === alreadyCreatedPixelsItem.x_axis && parseInt(pixelItem.attributes.y.value) === alreadyCreatedPixelsItem.y_axis) {
-            pixelItem.style.backgroundColor = alreadyCreatedPixelsItem.color.color_name;
-          }
-          
+      const getColorPixels = async () => {
+
+        await arr.map((pixelItem)=>{
+          allPixels.map((alreadyCreatedPixelsItem) => {
+            
+            if (parseInt(pixelItem.attributes.x.value) === alreadyCreatedPixelsItem.x_axis && parseInt(pixelItem.attributes.y.value) === alreadyCreatedPixelsItem.y_axis) {
+              pixelItem.style.backgroundColor = alreadyCreatedPixelsItem.color.color_name;
+            }
+            
+          })
         })
-      })
+      }
+      getColorPixels();
     };
     getData();
   }, []);
@@ -83,7 +88,9 @@ function PixelPlace() {
   }
 
   function handleSubmit(event) {
-    const arr = [].slice.call(event.target.parentElement.children[1].children);
+    const arr = [].slice.call(
+      event.target.parentElement.children[1].children[0].children[0].children[0].children
+    );
     arr.map((gridItem)=>{
       if(gridItem.classList.contains('highlighted')){
         const colorChange = colors[pixelColor.color - 1]
@@ -124,15 +131,15 @@ function PixelPlace() {
         <div>
           <h3 class='pallet'>Choose a Colour</h3>
           <ul class='colorList'>
-            <li onClick={handleColorClick} class='black'>
-              Black
-            </li>
             <li
               onClick={handleColorClick}
               class='white'
               id='makeBackgroundWhite'
             >
               White
+            </li>
+            <li onClick={handleColorClick} class='black'>
+              Black
             </li>
             <li onClick={handleColorClick} class='red'>
               Red
@@ -174,14 +181,20 @@ function PixelPlace() {
               ) : (
                 <PanZoom
                   enableBoundingBox
-                  boundaryRatioVertical={0.9}
-                  boundaryRatioHorizontal={0.9}
                   disableKeyInteraction='true'
                   maxZoom='3'
                   minZoom='0.2'
                   autoCenter='true'
                   autoCenterZoomLevel='1'
-                  position='center'
+                  style={{
+                    boxSizing: 'border-box',
+                    position: 'relative',
+
+                    overflow: 'hidden',
+                    height: '80vh',
+                    width: '80vw',
+                    border: 'solid 2px #333',
+                  }}
                 >
                   <div class='gridContainer' id='allThePixels'>
                     {cells.map((cellItem) =>
