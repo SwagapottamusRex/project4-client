@@ -140,6 +140,9 @@ There are many bugs unfortunately with this website. The biggest issue is having
 
 Besides fixing the bugs, another improvement I wish to work on is to add a zoom in and out ability to the grid as well as adding more pixels. One more piece of content I will add is adding notifications to when you fail to register due to lack of field requirements or invalid password confirmation/weak password.
 
+Update (May 9th 2022):
+I have implemented a pan and zoom in/out feature and an extra 40,000 pixels instead of 3600.
+
 ## Key Learnings
 
 The most useful aspect of this project that I learnt from is manipulating the back-end with Django. I learnt how to serialize models and how the process differs from a populated model with foreign keys. I found Django to be very interesting and possibly the most intersting aspect of it was understand the AbstractUser model.

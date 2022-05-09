@@ -23,6 +23,7 @@ function PixelPlace() {
   
   React.useEffect(() => { 
     const getData = async () => {
+      console.log('1');
       const colors = await getAllColors();
       setColors(colors);
       const allPixels = await getAllPixels();
@@ -30,6 +31,7 @@ function PixelPlace() {
       const allThePixels = document.getElementById('allThePixels')
       const allTheChildren = allThePixels.children;
       const arr = [].slice.call(allTheChildren);
+      console.log('2');
       const getColorPixels = async () => {
 
         await arr.map((pixelItem)=>{
@@ -42,7 +44,7 @@ function PixelPlace() {
           })
         })
       }
-      getColorPixels();
+      getColorPixels()
     };
     getData();
   }, []);
@@ -181,17 +183,18 @@ function PixelPlace() {
               ) : (
                 <PanZoom
                   enableBoundingBox
-                  disableKeyInteraction='true'
+                  boundaryRatioVertical={0.99}
+                  boundaryRatioHorizontal={0.99}
+                  // disableKeyInteraction='true'
                   maxZoom='3'
                   minZoom='0.2'
-                  autoCenter='true'
-                  autoCenterZoomLevel='1'
+                  // autoCenter='true'
+                  // autoCenterZoomLevel='1'
                   style={{
                     boxSizing: 'border-box',
                     position: 'relative',
 
                     overflow: 'hidden',
-                    height: '80vh',
                     width: '80vw',
                     border: 'solid 2px #333',
                   }}
