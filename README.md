@@ -16,7 +16,7 @@ https://pixelperfectplace.netlify.app/
 
 ## Project Overview 
 
-For this project I drew inspiration from the 2017 and 2022 April Fools social experiment called 'Place' that reddit ran for 5 days. For those unfamiliar with the experiment here is the link from the 2022 reddit page (https://www.reddit.com/r/place/). This was my final project from the 3-month intensive software engineering bootcamp at General Assembly and by far my proudest final product. It was a solo project built over the span of about 2 weeks. In order to participate in my app you need to register with a new account, login and start placing one pixel at a time. The original experiment from Reddit had users waiting 5 minutes before placing another pixel but since this is low traffic website I decided not to but a timer.
+For this project I drew inspiration from the 2017 and 2022 April Fools social experiment called 'Place' that reddit ran for 5 days. For those unfamiliar with the experiment here is the link from the 2022 reddit page (https://www.reddit.com/r/place/). This was my final project from the 3-month intensive software engineering bootcamp at General Assembly and by far my proudest final product. It was a solo project built over the span of about 2 weeks. In order to participate in my app you need to register with a new account, login and start placing one pixel at a time. The original experiment from Reddit had users waiting 5 minutes before placing another pixel but since this is a low traffic website I decided not to put a timer.
 
 ## The Brief
 
@@ -68,7 +68,7 @@ For this project I drew inspiration from the 2017 and 2022 April Fools social ex
 
 ### Day 1-10: Back End
 
-My minimum viable product was to have a website with communities, threads and comments where people could potentailly discuss what drawings they would want to build together on the blank pixel canvas. Day 1 - 10 consisted in building the models for the APIs. The Django models were, Color, Community, Thread, Comment, Pixel and the Custom User, displayed below.
+My minimum viable product was to have a website with communities, threads and comments where people could potentially discuss what drawings they would want to build together on the blank pixel canvas. Day 1 - 10 consisted in building the models for the APIs. The Django models were, Color, Community, Thread, Comment, Pixel and the Custom User, displayed below.
 
     class Color(models.Model):
       color_name = models.CharField(max_length=30)
@@ -133,7 +133,7 @@ Since I was more familiar with React and building the front end I only spent abo
 
 The biggest win for me was being able to convert on the idea I had originally planned out. Another win for me was bridging the knowledge gap I had when working on Django and the serialization of the models. 
 
-As to blockers, I had to rush the styling of the website which makes it look a bit simple. Another blocker is that the Pixel.js page inside the component folder is over 3500 lines long due to the thousands of pixels being displayed on screen. This make the page load a bit slow.
+As for blockers, I had to rush the styling of the website which makes it look a bit simple. Another blocker is that the Pixel.js page inside the component folder is over 3500 lines long due to the thousands of pixels being displayed on screen. This made the page load a bit slow.
 
 ## Bugs
 
@@ -148,4 +148,4 @@ I have implemented a pan and zoom in/out feature and an extra 40,000 pixels inst
 
 ## Key Learnings
 
-The most useful aspect of this project that I learnt from is manipulating the back end with Django. I learnt how to serialize models and how the process differs from a populated model with foreign keys. I found Django to be very interesting and possibly the most intersting aspect of it was understanding the AbstractUser model.
+The most useful aspect of this project that I learnt from is manipulating the back end with Django. I learnt how to serialize models and how the process differs from a populated model with foreign keys. I found Django to be very interesting and possibly the most interesting aspect of it was understanding the AbstractUser model.
