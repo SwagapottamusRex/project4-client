@@ -16,20 +16,20 @@ https://pixelperfectplace.netlify.app/
 
 ## Project Overview 
 
-For this project I drew inspiration from the 2017 and 2022 April Fools social experiment called 'Place' that reddit ran for 5 days. For those unfamiliar with the experiement here is the link the the 2022 reddit page (https://www.reddit.com/r/place/). This was my final project from the 3 month intensive softawre engineering bootcamp at General Assembly and by far my proudest final product. It was a solo project built over the span of about 2 weeks. In order to participate in my app you need to register with a new account, login and start placing one pixel at a time. The original experiment from Reddit had users waiting 5 minutes before placing another pixel but since this is low traffic website I decided not to but a timer.
+For this project I drew inspiration from the 2017 and 2022 April Fools social experiment called 'Place' that reddit ran for 5 days. For those unfamiliar with the experiment here is the link from the 2022 reddit page (https://www.reddit.com/r/place/). This was my final project from the 3-month intensive software engineering bootcamp at General Assembly and by far my proudest final product. It was a solo project built over the span of about 2 weeks. In order to participate in my app you need to register with a new account, login and start placing one pixel at a time. The original experiment from Reddit had users waiting 5 minutes before placing another pixel but since this is low traffic website I decided not to but a timer.
 
 ## The Brief
 
-<li>Build a full-stack application by making your own backend and your own front-end
+<li>Build a full-stack application by making your own back end and your own front end
 <li>Use a Python Django API using Django REST Framework to serve your data from a Postgres database
-<li>Consume your API with a separate front-end built with React
+<li>Consume your API with a separate front end built with React
 <li>Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
 <li>Be deployed online so it's publicly accessible.
 
 
 ## Technologies Used
 
-### Backend:
+### Back End:
 
 <li>Python</li>
 <li>Django</li>
@@ -38,7 +38,7 @@ For this project I drew inspiration from the 2017 and 2022 April Fools social ex
 <li>Jsonwebtokens</li>
 <li>dotenv</li>
 
-### Frontend:
+### Front End:
 
 <li>React</li>
 <li>Axios</li>
@@ -66,9 +66,9 @@ For this project I drew inspiration from the 2017 and 2022 April Fools social ex
 
 ## Approach Taken
 
-### Day 1-10: Backend
+### Day 1-10: Back End
 
-My minimum viable product was to have a webiste with communities, threads and comments where people could potentailly discuss what drawings they would want to build together on the blank pixel canvas. Day 1 - 10 consisited building the models for the APIs. The Django models were, Color, Community, Thread, Comment, Pixel and the Custom User, displayed below.
+My minimum viable product was to have a website with communities, threads and comments where people could potentailly discuss what drawings they would want to build together on the blank pixel canvas. Day 1 - 10 consisted in building the models for the APIs. The Django models were, Color, Community, Thread, Comment, Pixel and the Custom User, displayed below.
 
     class Color(models.Model):
       color_name = models.CharField(max_length=30)
@@ -112,23 +112,26 @@ My minimum viable product was to have a webiste with communities, threads and co
 
 
 
-Possibly the most interesting model is the CustomUser model which inherited from the AbstractUser model pre-built with django. This was very new to me at the time and I had a couple issues understanding how to manipulate the elements inside the model. The Pixel model is also interesting since I wasn't sure how to build it considering it was going to be built around a square grid. I came to the conclusion that containing a x and y axis may be useful to keep track of data. 
+Possibly the most interesting model is the CustomUser model which inherited from the AbstractUser model pre-built with django. This was very new to me at the time and I had a couple issues understanding how to manipulate the elements inside the model. The Pixel model is also interesting since I wasn't sure how to build it considering it was going to be built around a square grid. I came to the conclusion that containing a x and y-axis may be useful to keep track of data. 
 
-Once I created the models I then serialized them so that they could be converted into Json format. I struggled with understanding how serialization worked, especially when differentiating between the CRUD operators. I used Postman a lot in these stages to test out my API. Once finished with all the models, authenticaition and serialization I deployed the API using heroku.
+Once I created the models I then serialized them so that they could be converted into Json format. I struggled with understanding how serialization worked, especially when differentiating between the CRUD operators. I used Postman a lot in these stages to test out my API. Once finished with all the models, authentication and serialization I deployed the API using Heroku.
 
-### Day 11 - 14: Frontend
+### Day 11 - 14: Front End
 
-Since I was more familiar with React and building the frontend I only spent about 3 days designing and linking the deployed backend to the React app. Possibly the hardest aspect of the project was building the 60 by 60 pixel grid. Once finished with the frontend and styling (although still a bit rudimentary) I deployed it to netlify.During my presentation to the class some classmates took the liberty to draw some amazing art work, Mario, Space Invader and Kirby the Ghost. Here is a picture of what the canvas looks like now*.
+Since I was more familiar with React and building the front end I only spent about 3 days designing and linking the deployed back end to the React app. Possibly the hardest aspect of the project was building the 60 by 60 pixel grid. Once finished with the front end and styling (although still a bit rudimentary) I deployed it to Netlify. During my presentation to the class some classmates took the liberty to draw some amazing art work, Mario, Space Invader and Kirby the Ghost. Here is a picture of some of the neat drawings my classmates made:
+
 
 
 <img src="./afterCanvas.png" alt="drawing" width="700"/>
+
+** Update May 11th: The canvas now has an extra 40,000 pixels.**
 
 
 <hr>
 
 ## Wins & Blocker
 
-The biggest win for me was being able to convert on the idea I had originally planned out. Another win for me was bridging the knowledge gap I had when working on Django and the serliazation of the models. 
+The biggest win for me was being able to convert on the idea I had originally planned out. Another win for me was bridging the knowledge gap I had when working on Django and the serialization of the models. 
 
 As to blockers, I had to rush the styling of the website which makes it look a bit simple. Another blocker is that the Pixel.js page inside the component folder is over 3500 lines long due to the thousands of pixels being displayed on screen. This make the page load a bit slow.
 
@@ -145,4 +148,4 @@ I have implemented a pan and zoom in/out feature and an extra 40,000 pixels inst
 
 ## Key Learnings
 
-The most useful aspect of this project that I learnt from is manipulating the back-end with Django. I learnt how to serialize models and how the process differs from a populated model with foreign keys. I found Django to be very interesting and possibly the most intersting aspect of it was understand the AbstractUser model.
+The most useful aspect of this project that I learnt from is manipulating the back end with Django. I learnt how to serialize models and how the process differs from a populated model with foreign keys. I found Django to be very interesting and possibly the most intersting aspect of it was understanding the AbstractUser model.
