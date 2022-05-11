@@ -55,7 +55,7 @@ For this project I drew inspiration from the 2017 and 2022 April Fools social ex
 <li>VS code</li>
 <li>Postman</li>
 <li>Git</li>
-<li>Github</li>
+<li>GitHub</li>
 <li>Google Chrome dev tools</li>
 <li>Heroku (deployment)</li>
 <li>Trello Board (planning and timeline)</li>
