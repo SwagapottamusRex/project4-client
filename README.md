@@ -66,9 +66,13 @@ For this project I drew inspiration from the 2017 and 2022 April Fools social ex
 
 ## Approach Taken
 
-### Day 1-10: Back End
+### Day 1: Planning
 
-My minimum viable product was to have a website with communities, threads and comments where people could potentially discuss what drawings they would want to build together on the blank pixel canvas. Day 1 - 10 consisted in building the models for the APIs. The Django models were, Color, Community, Thread, Comment, Pixel and the Custom User, displayed below.
+The first day I planned and brainstormed the potential ideas I had already in mind. I quickly came to the idea of building a pixel art grid. Using Excalidraw I drew up a couple potential designs and organised the plan of action for the next couple weeks.
+
+### Day 2-10: Back End
+
+My minimum viable product was to have a website with communities, threads and comments where people could potentially discuss what drawings they would want to build together on the blank pixel canvas. Day 2 - 10 consisted in building the models for the APIs. The Django models were, Color, Community, Thread, Comment, Pixel and the Custom User, displayed below.
 
     class Color(models.Model):
       color_name = models.CharField(max_length=30)
@@ -114,11 +118,11 @@ My minimum viable product was to have a website with communities, threads and co
 
 Possibly the most interesting model is the CustomUser model which inherited from the AbstractUser model pre-built with django. This was very new to me at the time and I had a couple issues understanding how to manipulate the elements inside the model. The Pixel model is also interesting since I wasn't sure how to build it considering it was going to be built around a square grid. I came to the conclusion that containing a x and y-axis may be useful to keep track of data. 
 
-Once I created the models I then serialized them so that they could be converted into Json format. I struggled with understanding how serialization worked, especially when differentiating between the CRUD operators. I used Postman a lot in these stages to test out my API. Once finished with all the models, authentication and serialization I deployed the API using Heroku.
+Once I created the models, I then serialized them so that they could be converted into Json format. I struggled with understanding how serialization worked, especially when differentiating between the CRUD operators. I used Postman a lot in these stages to test out my API. Once finished with all the models, authentication and serialization I deployed the API using Heroku.
 
 ### Day 11 - 14: Front End
 
-Since I was more familiar with React and building the front end I only spent about 3 days designing and linking the deployed back end to the React app. Possibly the hardest aspect of the project was building the 60 by 60 pixel grid. Once finished with the front end and styling (although still a bit rudimentary) I deployed it to Netlify. During my presentation to the class some classmates took the liberty to draw some amazing art work, Mario, Space Invader and Kirby the Ghost. Here is a picture of some of the neat drawings my classmates made:
+Since I was more familiar with React and building the front end, I only spent about 3 days designing and linking the deployed back end to the React app. Possibly the hardest aspect of the project was building the 60 by 60 pixel grid. Once finished with the front end and styling (although still a bit rudimentary), I deployed it to Netlify. During my presentation to the class some classmates took the liberty to draw some amazing art work, Mario, Space Invader and Kirby the Ghost. Here is a picture of some of the neat drawings my classmates made:
 
 
 
@@ -134,6 +138,8 @@ Since I was more familiar with React and building the front end I only spent abo
 The biggest win for me was being able to convert on the idea I had originally planned out. Another win for me was bridging the knowledge gap I had when working on Django and the serialization of the models. 
 
 As for blockers, I had to rush the styling of the website which makes it look a bit simple. Another blocker is that the Pixel.js page inside the component folder is over 3500 lines long due to the thousands of pixels being displayed on screen. This made the page load a bit slow.
+
+** Update 13th May 2022: The page is still slow to load with 40,000 divs elements but the source of the loading time problem comes from mapping over two large arrays.
 
 ## Bugs
 
