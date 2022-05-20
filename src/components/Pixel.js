@@ -23,25 +23,16 @@ function PixelPlace() {
   
   React.useEffect(() => { 
     const getData = async () => {
-      console.log('1');
       const colors = await getAllColors();
       setColors(colors);
       const allPixels = await getAllPixels();
       setExistingPixels(allPixels);
-      const allThePixels = document.getElementById('allThePixels')
-      const allTheChildren = allThePixels.children;
-      const arr = [].slice.call(allTheChildren);
-      console.log('2');
       const getColorPixels = async () => {
-
-        await arr.map((pixelItem)=>{
-          allPixels.map((alreadyCreatedPixelsItem) => {
-            
-            if (parseInt(pixelItem.attributes.x.value) === alreadyCreatedPixelsItem.x_axis && parseInt(pixelItem.attributes.y.value) === alreadyCreatedPixelsItem.y_axis) {
-              pixelItem.style.backgroundColor = alreadyCreatedPixelsItem.color.color_name;
-            }
-            
-          })
+        await allPixels.map((pItem) => {
+          const x_num = pItem.x_axis;
+          const y_num = pItem.y_axis;
+          const x_pix = document.querySelector(`[x="${x_num}"][y="${y_num}"]`);
+          x_pix.style.backgroundColor = pItem.color.color_name
         })
       }
       getColorPixels()
